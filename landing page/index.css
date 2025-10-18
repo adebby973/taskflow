@@ -1,0 +1,68 @@
+body{
+    background-color: orange;
+   
+}
+.mainlanding{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.minilanding{
+     display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 50%;
+  height: 55%;
+  padding: 10px 0;
+  box-shadow: 5px 10px 5px black;
+  background-color: white;
+}
+
+img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+h2 {
+  font-size: 3em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  color: black; /* make visible on orange background */
+  text-align: center;
+}
+
+h2 sub {
+  color: orange;
+}
+
+
+p {
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn{
+    display: flex;
+    gap: 10px;
+}
+ button{
+    background-color: orange;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+}
+button:active{
+  background-color: whitesmoke;
+}
+a {
+    text-decoration: none;
+    color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2em;
+}

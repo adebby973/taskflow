@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>taskflow</title>
+    <link
+      rel="shortcut icon"
+      href="./Downloads/wpf--todolist.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h2>
+      <img src="../Downloads/wpf--todolist.svg" alt="" />Task <sub>flow</sub>
+    </h2>
+    <div class="taskflow">
+      <div class="numoftask">
+        <div class="aboutsection">
+          <button type="button" class="abtbtn">about</button>
+          <div class="aboutlist">
+            <button class="hisbtn">history</button>
+            <button class="countbtn">number of task</button>
+          </div>
+        </div>
+        <p class="taskcounttext">Total Tasks: 0 | Completed: 0</p>
+      </div>
+      <div class="history-container" style="display: none">
+        <h3>Task History</h3>
+        <div class="history-list"></div>
+        <button class="close">Close</button>
+      </div>
+
+      <button type="button" class="addbtn">
+        <img src="./material-symbols-light--add.svg" alt="" class="add" />add
+      </button>
+      <div class="addingtask">
+        <input
+          type="text"
+          class="adding activeinput"
+          placeholder="enter your task"
+        />
+        <button type="button" class="enterbtn">enter</button>
+      </div>
+      <div class="tasks"></div>
+    </div>
+
+    <button class="backbtn">
+      <a href="./landing page/index.html">back</a>
+    </button>
+    <script src="./index.js"></script>
+  </body>
+</html>
