@@ -7,7 +7,7 @@ const aboutlist = document.querySelector(".aboutlist");
 const task = document.querySelector(".tasks");
 const countbtn = document.querySelector(".countbtn");
 const taskcounttext = document.querySelector(".taskcounttext");
-const historyBtn = document.querySelector(".hisbtn"); // history button
+const historyBtn = document.querySelector(".hisbtn");
 const historyContainer = document.querySelector(".history-container");
 const historyList = document.querySelector(".history-list");
 const closeHistoryBtn = document.querySelector(".close");
@@ -23,34 +23,6 @@ about.addEventListener("click", () => {
   aboutlist.style.display =
     aboutlist.style.display === "none" ? "flex" : "none";
 });
-
-// Save current tasks to localStorage
-function saveTasks() {
-  const tasksArray = Array.from(document.querySelectorAll(".task-item")).map(
-    (item) => ({
-      text: item.querySelector("span").textContent,
-      completed: item.querySelector("input[type='checkbox']").checked,
-    })
-  );
-  localStorage.setItem("tasks", JSON.stringify(tasksArray));
-}
-
-// Save task to history with date
-function saveHistory(taskText) {
-  const history = JSON.parse(localStorage.getItem("historyTasks")) || [];
-  const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
-  history.push({ text: taskText, date: today });
-  localStorage.setItem("historyTasks", JSON.stringify(history));
-}
-
-// Load current tasks
-function loadTasks() {
-  const tasksArray = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasksArray.forEach((taskData) =>
-    createTask(taskData.text, taskData.completed)
-  );
-  updateTaskCount();
-}
 
 // Update task count
 function updateTaskCount() {
@@ -97,14 +69,12 @@ function createTask(taskText, completed = false) {
       text.style.textDecoration = "none";
       text.style.opacity = "1";
     }
-    saveTasks();
     updateTaskCount();
   });
 
   // Delete task
   delbtn.addEventListener("click", () => {
     taskItem.remove();
-    saveTasks();
     updateTaskCount();
   });
 
@@ -116,8 +86,6 @@ enter.addEventListener("click", () => {
   const taskText = adding.value.trim();
   if (taskText !== "") {
     createTask(taskText);
-    saveTasks();
-    saveHistory(taskText); // save in history
     adding.value = "";
   }
 });
@@ -132,45 +100,14 @@ adding.addEventListener("keydown", (event) => {
 // Show task count
 countbtn.addEventListener("click", updateTaskCount);
 
-// Show history inside container
+// History button (no storage, just message)
 historyBtn.addEventListener("click", () => {
-  const history = JSON.parse(localStorage.getItem("historyTasks")) || [];
-  if (history.length === 0) {
-    historyList.innerHTML = "<p>No history yet!</p>";
-    historyContainer.style.display = "block";
-    return;
-  }
-
-  // Group tasks by date
-  const grouped = {};
-  history.forEach((item) => {
-    const taskText = item.text || item; // handle old entries
-    const date = item.date || new Date().toISOString().split("T")[0]; // fallback
-    if (!grouped[date]) grouped[date] = [];
-    grouped[date].push(taskText);
-  });
-
-  // Build HTML
-  let html = "";
-  Object.keys(grouped)
-    .sort((a, b) => new Date(b) - new Date(a)) // newest first
-    .forEach((date) => {
-      html += `<h4>${date}</h4><ul>`;
-      grouped[date].forEach((task) => {
-        html += `<li>${task}</li>`;
-      });
-      html += "</ul>";
-    });
-
-  historyList.innerHTML = html;
-  historyContainer.style.display = "block"; // show container
-  aboutlist.style.display = "none"; // hide dropdown
+  historyList.innerHTML = "<p>History tracking is turned off!</p>";
+  historyContainer.style.display = "block";
+  aboutlist.style.display = "none";
 });
 
 // Close history
 closeHistoryBtn.addEventListener("click", () => {
   historyContainer.style.display = "none";
 });
-
-// Load tasks on page load
-loadTasks();
