@@ -66,3 +66,30 @@ a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.2em;
 }
+@media (max-width:480px){
+  body{
+    overflow: hidden;
+  }
+  .minilanding{
+    width: 80%;
+  }
+  p{
+    font-size: 15px;
+  }
+}
+@media (max-width:900px){
+  body{
+    overflow: hidden;
+  }
+  .minilanding{
+    width: 80%;
+  }
+}
+@media (max-width:1024px){
+  body{
+    overflow: hidden;
+  }
+  .minilanding{
+    width: 80%;
+  }
+}

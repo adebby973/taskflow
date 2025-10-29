@@ -6,7 +6,8 @@ body {
   align-items: center;
   background-size: cover;
   margin: 0;
-  height: 100vh; /* make sure body fills full height */
+  height: 100vh; 
+  width: 100vw;
 }
 
 h2 {
@@ -301,5 +302,29 @@ img {
   color: white;
   font-weight: bold;
   cursor: pointer;
+}
+@media (max-width:480px){
+  body{
+    overflow: hidden;
+  }
+  .taskflow{
+    width: 80%;
+  }
+}
+@media (max-width:900px){
+  body{
+    overflow: hidden;
+  }
+  .taskflow{
+    width: 80%;
+  }
+}
+@media (max-width:1024px){
+  body{
+    overflow: hidden;
+  }
+  .taskflow{
+    width: 80%;
+  }
 }
 
