@@ -1,321 +1,87 @@
-body {
-  background: linear-gradient(whitesmoke, rgb(255, 170, 11), orange);
-  display: flex;
+body{
+    background-color: orange;
+   
+}
+.mainlanding{
+    display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  margin: 0;
-  height: 100vh; 
   width: 100vw;
+  height: 100vh;
+}
+
+.minilanding{
+     display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 50%;
+  height: 55%;
+  padding: 10px 0;
+  box-shadow: 5px 10px 5px black;
+  background-color: white;
+}
+
+img {
+  width: 50px;
+  vertical-align: middle;
 }
 
 h2 {
   font-size: 3em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
-  color: black;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 5px;
+  color: black; /* make visible on orange background */
+  text-align: center;
 }
 
 h2 sub {
   color: orange;
 }
 
-img {
-  width: 10%;
+
+p {
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* ===== OUTER CONTAINER ===== */
-.taskflow {
-  width: 40%;
-  height: 83.33%;
-  background-color: #fffbea;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 0 30px 30px 30px;
-  display: flex;               /* add flex */
-  flex-direction: column;      /* stack children vertically */
-  justify-content: flex-start; /* content flows downward */
-  box-sizing: border-box;
-  overflow: hidden;
-  position: relative;
+.btn{
+    display: flex;
+    gap: 10px;
 }
-
-/* ===== LINED PAPER EFFECT ===== */
-.taskflow::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: 0.6;
-  z-index: 0;
+ button{
+    background-color: orange;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
 }
-
-.taskflow > * {
-  position: relative;
-  z-index: 2;
-}
-
-.taskflow p {
-  margin-top: 0;
-  padding-top: 5px;
-  color: orange;
-  font-size: 1.5rem;
-}
-
-/* ===== TOP BAR ===== */
-.numoftask {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: auto;
-}
-
-/* ===== ABOUT SECTION ===== */
-.aboutsection {
-  position: relative;
-  width: 50%;
-}
-
-.abtbtn {
-  border: none;
-  background-color: white;
-  color: #ffa500;
-  font-weight: bold;
-  padding: 5px;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-}
-
-.aboutlist {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 30%;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ffa500;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-}
-
-.aboutlist button {
-  border: none;
-  outline: none;
-  background: none;
-  padding: 10px;
-  text-align: left;
-  color: #ffa500;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.aboutlist button:hover {
-  background-color: #fff3cd;
-}
-
-.taskcounttext {
-  font-size: 10px;
-  width: 40%;
-}
-
-/* ===== ADD BUTTON ===== */
-.addbtn {
-  display: flex;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ffa500;
-  color: white;
-  font-weight: bold;
-  float: right;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.add {
-  width: 20px;
-  height: 20px;
-}
-
-/* ===== INPUT AREA ===== */
-.addingtask {
-  display: none;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.adding {
-  border: none;
-  outline: orange;
+button:active{
   background-color: whitesmoke;
-  flex: 1;
 }
-
-.enterbtn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ffa500;
-  color: white;
-  font-weight: bold;
-}
-
-/* ===== TASKS BOX ===== */
-.tasks {
-  flex-grow: 1;                /* take remaining space */
-  width: 100%;
-  background-color: #fffbea;
-  border: 1px solid orange;
-  border-radius: 6px;
-  margin-top: 20px;
-  overflow-y: auto;            /* scroll if needed */
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-/* ===== TASK ITEM ===== */
-.task-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
-  background-color: #fff7e6;
-  padding: 8px 12px;
-  border-radius: 6px;
-  width: 90%;
-}
-
-.checkstyle {
-  accent-color: orange;
-  width: 18px;
-  height: 18px;
-}
-
-.delbtn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.delbtn:hover {
-  color: red;
-  transform: scale(1.2);
-  transition: 0.2s ease;
-}
-
-/* ===== BACK BUTTON ===== */
-.backbtn {
-  margin-top: 15px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ffa500;
-  color: white;
-  font-weight: bold;
-}
-
-.backbtn a {
-  color: white;
-  text-decoration: none;
-}
-/* ===== HISTORY OVERLAY ===== */
-.history-container {
-  display: none; /* hidden by default */
-  position: absolute; /* sits on top of taskflow */
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 70%;
-  background: white;
-  border: 2px solid orange;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  z-index: 5; /* ensure it stays above everything */
-  overflow-y: auto;
-}
-
-/* Optional: fade-in effect */
-.history-container.show {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* ===== HISTORY CONTENT ===== */
-.history-container h3 {
-  color: orange;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.history-list {
-  max-height: 70%;
-  overflow-y: auto;
-  padding: 10px;
-  border: 1px solid #ffa500;
-  border-radius: 6px;
-  background-color: #fffbea;
-}
-
-.history-list ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.history-list li {
-  background: #fff7e6;
-  margin: 5px 0;
-  padding: 6px 10px;
-  border-radius: 6px;
-  color: #555;
-}
-
-.close {
-  display: block;
-  margin: 20px auto 0 auto;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: #ffa500;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+a {
+    text-decoration: none;
+    color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2em;
 }
 @media (max-width:480px){
   body{
     overflow: hidden;
   }
-  .taskflow{
+  .minilanding{
     width: 80%;
+  }
+  p{
+    font-size: 15px;
   }
 }
 @media (max-width:900px){
   body{
     overflow: hidden;
   }
-  .taskflow{
+  .minilanding{
     width: 80%;
   }
 }
@@ -323,8 +89,7 @@ img {
   body{
     overflow: hidden;
   }
-  .taskflow{
+  .minilanding{
     width: 80%;
   }
 }
-
